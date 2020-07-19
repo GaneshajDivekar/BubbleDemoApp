@@ -1,5 +1,6 @@
 package com.app.bubbledemoapp.ui.mainmodule
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.app.bubbledemoapp.R
@@ -28,5 +29,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainNav
 
     override fun setUp(savedInstanceState: Bundle?) {
 
+    }
+
+    override fun clickOnProceed() {
+        val intent = Intent(this, AllItemListActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
