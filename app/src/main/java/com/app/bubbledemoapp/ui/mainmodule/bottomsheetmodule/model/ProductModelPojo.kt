@@ -11,6 +11,7 @@ data class ProductModelPojo(
     @SerializedName("Features")
     val features: List<String>,
     val price: String,
-    val size: List<String>
+    val size: List<String>,
+    val image :String
 
 )

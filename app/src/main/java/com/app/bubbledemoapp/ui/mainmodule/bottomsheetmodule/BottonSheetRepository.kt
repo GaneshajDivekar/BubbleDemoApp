@@ -31,69 +31,6 @@ class BottonSheetRepository {
         }
     }
 
-   /* fun salesRmDetails(plant_id: String): LiveData<ProductModelPojo> {
-
-        val salesRmData = MutableLiveData<ProductModelPojo>()
-
-        CoroutineScope(Dispatchers.Main).launch {
-            val resultDef: Deferred<Response<ProductModelPojo>> =
-                getSalesRmData(plant_id)
-            try {
-                val result: Response<ProductModelPojo> = resultDef.await()
-                if (result.isSuccessful) {
-                    val response = result.body()
-                    response?.let {
-
-                        if (response != null) {
-                            if (response.flag.equals("1")) {
-                                var salesRmList = ArrayList<SalesRMEntity>()
-                                if (response.data!!.salesrm_list!!.size > 0) {
-                                    val salesRmDetailsList = response.data?.salesrm_list
-                                    salesRmData.value = response
-
-                                    for (i in salesRmDetailsList!!.indices) {
-                                        var salesRMEntity = SalesRMEntity()
-                                        salesRMEntity.sales_rm_id =
-                                            salesRmDetailsList.get(i).sales_rm_id.toString()
-                                        salesRMEntity.sales_rm_name =
-                                            salesRmDetailsList.get(i).sales_rm_name.toString()
-                                        salesRMEntity.location_name =
-                                            salesRmDetailsList.get(i).location_name.toString()
-                                        salesRmList.add(salesRMEntity)
-                                    }
-                                    DatabaseHelper.getDatabase(mContext!!).interfaceDao()
-                                        .saveSalesRM(salesRmList)
-                                }
-
-                            } else {
-                                DialogUtils.stopProgressDialog()
-                                Toast.makeText(mContext, "Something went wrong", Toast.LENGTH_SHORT)
-                                    .show()
-                            }
-
-
-                        }
-
-                    }
-                } else {
-                    DialogUtils.stopProgressDialog()
-                    Toast.makeText(
-                        mContext,
-                        "Please Check Internet Connections.",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
-            } catch (ex: Exception) {
-                resultDef.getCompletionExceptionOrNull()?.let {
-                    println(resultDef.getCompletionExceptionOrNull()!!.message)
-                }
-
-            }
-        }
-        return salesRmData
-    }*/
-
     fun getProductListData(db: FirebaseFirestore): LiveData<ProductModelPojo> {
         val tempProductModelPojo = MutableLiveData<ProductModelPojo>()
         val docRef = db!!.collection("product").document("tQifPlrfGDLfqx6ww7pd")
@@ -109,8 +46,6 @@ class BottonSheetRepository {
                     )
 
                     tempProductModelPojo.value = productModelPojo
-                    System.out.println("Result="+productModelPojo)
-                    //  (Gson().toJson(document.data))
                 } else {
                     Log.d("TAG", "No such document")
                 }
@@ -118,8 +53,6 @@ class BottonSheetRepository {
             .addOnFailureListener { exception ->
                 Log.d("TAG", "get failed with ", exception)
             }
-
-
         return tempProductModelPojo
     }
 
