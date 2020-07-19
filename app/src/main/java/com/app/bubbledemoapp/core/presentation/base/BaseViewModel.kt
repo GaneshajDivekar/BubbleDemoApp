@@ -1,4 +1,4 @@
-package kheliya.application.core.presentation.base
+package com.app.bubbledemoapp.core.presentation.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

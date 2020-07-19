@@ -1,5 +1,5 @@
 object ApplicationId {
-    const val id = "kheliya.application"
+    const val id = "com.app.bubbledemoapp"
 }
 
 object Modules {

@@ -1,12 +1,13 @@
-package kheliya.application.data.room
+package com.app.bubbledemoapp.data.room
 
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.app.bubbledemoapp.data.room.InterfaceDao
 import com.app.bubbledemoapp.model.db.LoginDetailsEntity
-import kheliya.application.data.room.dbHelper.DBUtils
+import com.app.bubbledemoapp.data.room.dbHelper.DBUtils
 
 @Database(
     entities = arrayOf(LoginDetailsEntity::class),

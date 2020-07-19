@@ -1,4 +1,4 @@
-package kheliya.application.core.network.webservice
+package com.app.bubbledemoapp.core.network.webservice
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient

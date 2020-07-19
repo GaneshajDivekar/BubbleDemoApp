@@ -1,4 +1,4 @@
-package kheliya.application.core.presentation
+package com.app.bubbledemoapp.core.presentation
 
 /**
  * Different states of a resource that is provided to the presentation layer.

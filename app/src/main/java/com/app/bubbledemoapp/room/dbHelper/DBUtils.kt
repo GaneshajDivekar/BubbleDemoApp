@@ -1,4 +1,4 @@
-package kheliya.application.data.room.dbHelper
+package com.app.bubbledemoapp.data.room.dbHelper
 
 class DBUtils {
     companion object {

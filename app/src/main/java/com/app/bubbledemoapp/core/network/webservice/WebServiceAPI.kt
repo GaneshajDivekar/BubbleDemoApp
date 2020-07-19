@@ -1,4 +1,4 @@
-package kheliya.application.core.network.webservice
+package com.app.bubbledemoapp.core.network.webservice
 
 class WebServiceAPI {
 

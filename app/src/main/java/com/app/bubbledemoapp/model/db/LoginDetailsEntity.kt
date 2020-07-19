@@ -3,7 +3,7 @@ package com.app.bubbledemoapp.model.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kheliya.application.data.room.dbHelper.DBUtils
+import com.app.bubbledemoapp.data.room.dbHelper.DBUtils
 
 
 @Entity(tableName = DBUtils.LOGIN_DETAILS)

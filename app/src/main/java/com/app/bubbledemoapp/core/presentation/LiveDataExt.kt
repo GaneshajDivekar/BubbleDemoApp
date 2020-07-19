@@ -1,4 +1,4 @@
-package kheliya.application.core.presentation
+package com.app.bubbledemoapp.core.presentation
 
 import androidx.lifecycle.MutableLiveData
 

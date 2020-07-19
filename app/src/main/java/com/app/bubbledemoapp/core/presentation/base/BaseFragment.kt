@@ -1,4 +1,4 @@
-package kheliya.application.core.presentation.base
+package com.app.bubbledemoapp.core.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,12 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.app.bubbledemoapp.core.presentation.base.BaseActivity
+import com.app.bubbledemoapp.core.presentation.base.BaseViewModel
+import com.app.bubbledemoapp.ui.mainmodule.bottomsheetmodule.BottomSheetFragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : BottomSheetDialogFragment() {
 
     private lateinit var mViewDataBinding: T
     private var mActivity: BaseActivity<*, *>? = null

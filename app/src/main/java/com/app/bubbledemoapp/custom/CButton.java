@@ -1,4 +1,4 @@
-package kheliya.application.custom;
+package com.app.bubbledemoapp.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,11 +1,11 @@
 package com.app.bubbledemoapp.ui.mainmodule
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.app.bubbledemoapp.R
+import com.app.bubbledemoapp.core.presentation.base.BaseActivity
 import com.app.bubbledemoapp.databinding.ActivityMainBinding
-import kheliya.application.core.presentation.base.BaseActivity
+import com.app.bubbledemoapp.ui.mainmodule.bottomsheetmodule.BottomSheetFragment
+import com.google.firebase.FirebaseApp
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainNavigator {
@@ -14,7 +14,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainNav
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = getViewDataBinding()
-
+        activityMainBinding?.clickMeCallback = this
+        FirebaseApp.initializeApp(this)
     }
 
     override fun getLayoutId(): Int {
@@ -32,8 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainNav
     }
 
     override fun clickOnProceed() {
-        val intent = Intent(this, AllItemListActivity::class.java)
-        startActivity(intent)
-        finish()
+        val bottomSheet = BottomSheetFragment()
+        bottomSheet.show(supportFragmentManager, "BottomSheetDialogFragment")
     }
 }

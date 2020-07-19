@@ -1,4 +1,4 @@
-package kheliya.application.core.presentation
+package com.app.bubbledemoapp.core.presentation
 
 /**
  * A generic class to hold its own loading status

@@ -1,4 +1,4 @@
-package kheliya.application.Utils
+package com.app.bubbledemoapp.Utils
 
 import android.content.Context
 import android.content.SharedPreferences
