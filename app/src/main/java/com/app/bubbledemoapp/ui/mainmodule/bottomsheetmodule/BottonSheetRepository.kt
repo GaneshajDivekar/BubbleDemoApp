@@ -39,13 +39,15 @@ class BottonSheetRepository {
                 if (document != null) {
                     var productModelPojo: ProductModelPojo? = ProductModelPojo("",
                         emptyList(),"","",emptyList()
-                        ,"",emptyList())
+                        ,"",emptyList(),"")
                     productModelPojo = Gson().fromJson<ProductModelPojo>(
                         Gson().toJson(document.data),
                         ProductModelPojo::class.java
                     )
 
                     tempProductModelPojo.value = productModelPojo
+                    System.out.println("Result="+productModelPojo)
+                    //  (Gson().toJson(document.data))
                 } else {
                     Log.d("TAG", "No such document")
                 }
@@ -53,6 +55,8 @@ class BottonSheetRepository {
             .addOnFailureListener { exception ->
                 Log.d("TAG", "get failed with ", exception)
             }
+
+
         return tempProductModelPojo
     }
 
