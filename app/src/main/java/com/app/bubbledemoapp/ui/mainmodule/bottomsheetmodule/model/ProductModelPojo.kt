@@ -13,5 +13,4 @@ data class ProductModelPojo(
     val price: String,
     val size: List<String>,
     val image :String
-
 )

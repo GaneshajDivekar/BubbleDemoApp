@@ -39,6 +39,7 @@ class BottomSheetFragment : BaseFragment<FragmentBottomSheetBinding, BottomSheet
                 if (productModelPojo != null) {
 
                 } else {
+
                 }
             })
     }
