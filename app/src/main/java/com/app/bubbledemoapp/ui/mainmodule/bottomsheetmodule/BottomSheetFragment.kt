@@ -3,7 +3,10 @@ package com.app.bubbledemoapp.ui.mainmodule.bottomsheetmodule
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.app.bubbledemoapp.R
+
+import androidx.lifecycle.Observer
 import com.app.bubbledemoapp.core.presentation.base.BaseFragment
 import com.app.bubbledemoapp.databinding.FragmentBottomSheetBinding
 import com.app.bubbledemoapp.ui.mainmodule.bottomsheetmodule.model.ProductModelPojo
@@ -31,28 +34,13 @@ class BottomSheetFragment : BaseFragment<FragmentBottomSheetBinding, BottomSheet
         fragmentBottomSheetBinding!!.bottomSheetCall = this
         bottomSheetNavigator = this
         db = FirebaseFirestore.getInstance()
-        val docRef = db!!.collection("product").document("tQifPlrfGDLfqx6ww7pd")
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    var productModelPojo: ProductModelPojo? = ProductModelPojo()
-                    productModelPojo = Gson().fromJson<ProductModelPojo>(
-                        Gson().toJson(document.data),
-                        ProductModelPojo::class.java
-                    )
-                    System.out.println("Result="+productModelPojo)
-                    //                        String userData  = document.getData().toString();
-                    (Gson().toJson(document.data))
-                    Log.d("TAG", "DocumentSnapshot data: ${document.data}")
+        bottomSheetViewModel?.getProductList(db!!)
+            ?.observe(this, Observer { productModelPojo ->
+                if (productModelPojo != null) {
+
                 } else {
-                    Log.d("TAG", "No such document")
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("TAG", "get failed with ", exception)
-            }
-
-
+            })
     }
 
 }
